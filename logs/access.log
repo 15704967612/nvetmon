@@ -1,1 +1,0 @@
-192.168.8.75 - - [22/Apr/2022:16:39:14 +0800] "GET /api/v1/mon/inputs?ip=172.18.8.148 HTTP/1.1" 200 45 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"

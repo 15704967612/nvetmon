@@ -66,11 +66,11 @@ class BkCmdb(object):
                 val = val['info'][0]['host']
                 pop_keys = ['bk_cloud_id', 'bk_host_id']
                 [val.pop(k) for k in pop_keys]
-                filter_msg = "#"
+                data = ""
                 if len(val) > 0:
-                    for valkey in val:
-                        filter_msg += val[valkey] + "#"
-                    return filter_msg
+                    for _key in val:
+                        data += val[_key] + " "
+                    return data.strip() + '\r'
                 else:
                     return 408
 
