@@ -1,15 +1,24 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
-from flask import request, jsonify, render_template
+from flask import request, jsonify, render_template, Response
 from fluskmode import bk_api
 from fluskmode.validator import parameter
 from fluskmode import logic
+
+import configparser
+import os
 
 __author__ = 'mc'
 
 app = Flask(__name__)
 app.debug = True
-BkUser = bk_api.BkCmdb()
+
+
+config = configparser.ConfigParser()
+config.read(os.path.join(os.path.abspath(os.path.dirname('__file__')), 'app_conf.ini'))
+host = config["DEFAULT"]["Cmdb_Adder"]
+
+BkUser = bk_api.BkCmdb(host)
 
 
 @app.route('/api/v1/mon/inputs', methods=["GET"], endpoint="mon_inputs")
@@ -25,7 +34,7 @@ def mon_inputs():
     elif info == 408:
         return jsonify(dict(code=3992, msg="Telegraf配置信息不存在"))
     else:
-        return str(info)
+        return jsonify(dict(code=2000, msg=info))
 
 
 @app.route('/api/v1/mon/conf', methods=["GET"], endpoint="mon_files")

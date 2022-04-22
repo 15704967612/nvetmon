@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-import requests
 import json
+import requests
 
 
-class BkCmdb(object):
+class BkCmdb:
     """
     Tencent Cloud
     Blue Whale Interface
     """
 
-    def __init__(self):
-        self.bk_ip = 'http://172.18.9.218:33032'
-        #
+    def __init__(self, host: str, **kw):
+        self.bk_ip = host
+
         self.headers = {
             'Content-Type': 'application/json',
             'HTTP_BLUEKING_SUPPLIER_ID': '0',
@@ -70,7 +70,7 @@ class BkCmdb(object):
                 if len(val) > 0:
                     for _key in val:
                         data += val[_key] + " "
-                    return data.strip() + '\r'
+                    data = str(data.strip())
+                    return data
                 else:
                     return 408
-

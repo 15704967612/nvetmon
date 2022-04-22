@@ -15,5 +15,5 @@ reload = True
 x_forwarded_for_header = 'X_FORWARDED-FOR'
 # 访问日志
 loglevel = 'info'
-# accesslog = './logs/access.log'
-# errorlog = './logs/error.log'
+accesslog = './logs/access.log'
+errorlog = './logs/error.log'
