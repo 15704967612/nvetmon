@@ -18,16 +18,16 @@ async def ssh_connect(host: str, username: str, cmd: str):
             _ssh_fd.connect(hostname=host, port=22, username=username, pkey=_private_key)
             stdin, stdout, stderr = _ssh_fd.exec_command(cmd)
             if len(stderr.read()) != 0:
-                
-
+                return json.dumps({"ok": False, "code": 1122021, "data": "ssh %s@%s %s 执行失败" % (username, host, cmd)})
+            else:
+                pass
 
             _ssh_fd.close()
 
         future = loop.run_in_executor(None, _ssh_connect)
         await future
 
+        return _ssh_connect
+
     except Exception as e:
-        print('ssh %s@%s: %s' % (username, host, e))
-        return json.dumps({"ok": False, "code": 1122021, "data": "ssh %s@%s 连接失败" % (username, host)})
-
-
+        return json.dumps({"ok": False, "code": 1122022, "data": "ssh %s@%s 连接失败" % (username, host)})

@@ -3,10 +3,11 @@ import asyncio
 import configparser
 import datetime
 import json
+import logging
 import os
 import time
 
-from flask import Flask
+from flask import Flask, current_app
 from flask import request, jsonify, render_template
 
 from fluskmode import bk_api
@@ -18,7 +19,7 @@ from fluskmode.ssh_cli import ssh_connect
 __author__ = 'mc'
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 # 导入定时器配置
 app.config.from_object(SchedulerConfig())
 
@@ -59,17 +60,22 @@ def mon_files():
 
 
 def timer():
-    # end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    # start_time = (datetime.datetime.now() + datetime.timedelta(minutes=-1)).strftime("%Y-%m-%d %H:%M:%S")
-    # update_info_ip = json.loads(BkUser.select_audit_log(start_time=start_time, end_time=end_time))
-    # if update_info_ip['ok'] and update_info_ip['code'] == 200:
-    #     ips = update_info_ip['data']
+    end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    start_time = (datetime.datetime.now() + datetime.timedelta(minutes=-1)).strftime("%Y-%m-%d %H:%M:%S")
+    update_info_ip = json.loads(BkUser.select_audit_log(start_time=start_time, end_time=end_time))
+    if update_info_ip['ok'] and update_info_ip['code'] == 200:
+        ips = update_info_ip['data']
+        task_list = [ssh_connect(host=_ip, username='admin', cmd='/opt/scripts/automon.sh') for _ip in ips]
+        done, peding = asyncio.run(asyncio.wait(task_list))
+    else:
+        pass
 
-    # else:
-        # ips = ['127.0.0.1', '127.0.0.1', '127.0.0.1']
-    ips = ['192.168.21.63']
-    task_list = [ssh_connect(host=_ip, username='admin', cmd='w') for _ip in ips]
-    done, peding = asyncio.run(asyncio.wait(task_list))
+
+if __name__ != '__main__':
+    # 如果不是直接运行，则将日志输出到 gunicorn 中
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
 
 
 if __name__ == '__main__':
