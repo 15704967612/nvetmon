@@ -1,0 +1,469 @@
+[2022-04-23 13:58:47 +0800] [74086] [INFO] Starting gunicorn 20.1.0
+[2022-04-23 13:58:47 +0800] [74086] [INFO] Listening at: http://0.0.0.0:23456 (74086)
+[2022-04-23 13:58:47 +0800] [74086] [INFO] Using worker: gevent
+[2022-04-23 13:58:47 +0800] [74091] [INFO] Booting worker with pid: 74091
+[2022-04-23 13:58:47 +0800] [74092] [INFO] Booting worker with pid: 74092
+[2022-04-23 13:58:47 +0800] [74093] [INFO] Booting worker with pid: 74093
+[2022-04-23 13:58:48 +0800] [74094] [INFO] Booting worker with pid: 74094
+[2022-04-23 13:58:48 +0800] [74095] [INFO] Booting worker with pid: 74095
+[2022-04-23 13:58:48 +0800] [74096] [INFO] Booting worker with pid: 74096
+[2022-04-23 13:58:48 +0800] [74097] [INFO] Booting worker with pid: 74097
+[2022-04-23 13:58:48 +0800] [74098] [INFO] Booting worker with pid: 74098
+[2022-04-23 13:58:48 +0800] [74099] [INFO] Booting worker with pid: 74099
+[2022-04-23 13:59:01 +0800] [74091] [ERROR] Error handling request /api/v1/mon/inputs?ip=172.18.8.148
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 55, in handle
+    self.handle_request(listener_name, req, client, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 127, in handle_request
+    super().handle_request(listener_name, req, sock, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 108, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1526, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1545, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1702, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'mon_inputs' did not return a valid response. The function either returned None or ended without a return statement.
+[2022-04-23 14:00:53 +0800] [74091] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:53 +0800] [74091] [INFO] Worker exiting (pid: 74091)
+[2022-04-23 14:00:53 +0800] [74092] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:53 +0800] [74092] [INFO] Worker exiting (pid: 74092)
+[2022-04-23 14:00:53 +0800] [74093] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:53 +0800] [74093] [INFO] Worker exiting (pid: 74093)
+[2022-04-23 14:00:53 +0800] [74545] [INFO] Booting worker with pid: 74545
+[2022-04-23 14:00:53 +0800] [74094] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:53 +0800] [74094] [INFO] Worker exiting (pid: 74094)
+[2022-04-23 14:00:54 +0800] [74095] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:54 +0800] [74095] [INFO] Worker exiting (pid: 74095)
+[2022-04-23 14:00:54 +0800] [74096] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:54 +0800] [74096] [INFO] Worker exiting (pid: 74096)
+[2022-04-23 14:00:54 +0800] [74097] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:54 +0800] [74546] [INFO] Booting worker with pid: 74546
+[2022-04-23 14:00:54 +0800] [74097] [INFO] Worker exiting (pid: 74097)
+[2022-04-23 14:00:54 +0800] [74548] [INFO] Booting worker with pid: 74548
+[2022-04-23 14:00:54 +0800] [74098] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:54 +0800] [74098] [INFO] Worker exiting (pid: 74098)
+[2022-04-23 14:00:54 +0800] [74549] [INFO] Booting worker with pid: 74549
+[2022-04-23 14:00:54 +0800] [74099] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:00:54 +0800] [74099] [INFO] Worker exiting (pid: 74099)
+[2022-04-23 14:00:54 +0800] [74550] [INFO] Booting worker with pid: 74550
+[2022-04-23 14:00:54 +0800] [74551] [INFO] Booting worker with pid: 74551
+[2022-04-23 14:00:54 +0800] [74552] [INFO] Booting worker with pid: 74552
+[2022-04-23 14:00:54 +0800] [74553] [INFO] Booting worker with pid: 74553
+[2022-04-23 14:00:54 +0800] [74554] [INFO] Booting worker with pid: 74554
+[2022-04-23 14:00:58 +0800] [74550] [ERROR] Error handling request /api/v1/mon/inputs?ip=172.18.8.148
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 55, in handle
+    self.handle_request(listener_name, req, client, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 127, in handle_request
+    super().handle_request(listener_name, req, sock, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 108, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1526, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1545, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1702, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'mon_inputs' did not return a valid response. The function either returned None or ended without a return statement.
+[2022-04-23 14:02:39 +0800] [74552] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:39 +0800] [74552] [INFO] Worker exiting (pid: 74552)
+[2022-04-23 14:02:39 +0800] [74553] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:39 +0800] [74553] [INFO] Worker exiting (pid: 74553)
+[2022-04-23 14:02:39 +0800] [74554] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:39 +0800] [74554] [INFO] Worker exiting (pid: 74554)
+[2022-04-23 14:02:39 +0800] [74919] [INFO] Booting worker with pid: 74919
+[2022-04-23 14:02:39 +0800] [74920] [INFO] Booting worker with pid: 74920
+[2022-04-23 14:02:39 +0800] [74921] [INFO] Booting worker with pid: 74921
+[2022-04-23 14:02:39 +0800] [74545] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:39 +0800] [74545] [INFO] Worker exiting (pid: 74545)
+[2022-04-23 14:02:39 +0800] [74923] [INFO] Booting worker with pid: 74923
+[2022-04-23 14:02:39 +0800] [74546] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:39 +0800] [74546] [INFO] Worker exiting (pid: 74546)
+[2022-04-23 14:02:40 +0800] [74548] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:40 +0800] [74548] [INFO] Worker exiting (pid: 74548)
+[2022-04-23 14:02:40 +0800] [74549] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:40 +0800] [74549] [INFO] Worker exiting (pid: 74549)
+[2022-04-23 14:02:40 +0800] [74550] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:40 +0800] [74550] [INFO] Worker exiting (pid: 74550)
+[2022-04-23 14:02:40 +0800] [74924] [INFO] Booting worker with pid: 74924
+[2022-04-23 14:02:40 +0800] [74551] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:02:40 +0800] [74551] [INFO] Worker exiting (pid: 74551)
+[2022-04-23 14:02:40 +0800] [74925] [INFO] Booting worker with pid: 74925
+[2022-04-23 14:02:40 +0800] [74926] [INFO] Booting worker with pid: 74926
+[2022-04-23 14:02:40 +0800] [74927] [INFO] Booting worker with pid: 74927
+[2022-04-23 14:02:40 +0800] [74928] [INFO] Booting worker with pid: 74928
+[2022-04-23 14:03:49 +0800] [74923] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:49 +0800] [74923] [INFO] Worker exiting (pid: 74923)
+[2022-04-23 14:03:49 +0800] [75176] [INFO] Booting worker with pid: 75176
+[2022-04-23 14:03:49 +0800] [74924] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:49 +0800] [74924] [INFO] Worker exiting (pid: 74924)
+[2022-04-23 14:03:49 +0800] [74925] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:49 +0800] [74925] [INFO] Worker exiting (pid: 74925)
+[2022-04-23 14:03:49 +0800] [75178] [INFO] Booting worker with pid: 75178
+[2022-04-23 14:03:49 +0800] [74926] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:49 +0800] [74926] [INFO] Worker exiting (pid: 74926)
+[2022-04-23 14:03:49 +0800] [75179] [INFO] Booting worker with pid: 75179
+[2022-04-23 14:03:49 +0800] [74927] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:49 +0800] [74927] [INFO] Worker exiting (pid: 74927)
+[2022-04-23 14:03:49 +0800] [74928] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:49 +0800] [74928] [INFO] Worker exiting (pid: 74928)
+[2022-04-23 14:03:49 +0800] [74919] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:49 +0800] [74919] [INFO] Worker exiting (pid: 74919)
+[2022-04-23 14:03:49 +0800] [75180] [INFO] Booting worker with pid: 75180
+[2022-04-23 14:03:49 +0800] [74920] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:49 +0800] [74920] [INFO] Worker exiting (pid: 74920)
+[2022-04-23 14:03:50 +0800] [75181] [INFO] Booting worker with pid: 75181
+[2022-04-23 14:03:50 +0800] [74921] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:03:50 +0800] [74921] [INFO] Worker exiting (pid: 74921)
+[2022-04-23 14:03:50 +0800] [75182] [INFO] Booting worker with pid: 75182
+[2022-04-23 14:03:50 +0800] [75183] [INFO] Booting worker with pid: 75183
+[2022-04-23 14:03:50 +0800] [75184] [INFO] Booting worker with pid: 75184
+[2022-04-23 14:03:50 +0800] [75185] [INFO] Booting worker with pid: 75185
+[2022-04-23 14:05:16 +0800] [75180] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:16 +0800] [75180] [INFO] Worker exiting (pid: 75180)
+[2022-04-23 14:05:16 +0800] [75181] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:16 +0800] [75181] [INFO] Worker exiting (pid: 75181)
+[2022-04-23 14:05:16 +0800] [75496] [INFO] Booting worker with pid: 75496
+[2022-04-23 14:05:16 +0800] [75182] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:16 +0800] [75182] [INFO] Worker exiting (pid: 75182)
+[2022-04-23 14:05:16 +0800] [75497] [INFO] Booting worker with pid: 75497
+[2022-04-23 14:05:16 +0800] [75183] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:16 +0800] [75183] [INFO] Worker exiting (pid: 75183)
+[2022-04-23 14:05:16 +0800] [75498] [INFO] Booting worker with pid: 75498
+[2022-04-23 14:05:16 +0800] [75184] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:16 +0800] [75184] [INFO] Worker exiting (pid: 75184)
+[2022-04-23 14:05:16 +0800] [75185] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:16 +0800] [75185] [INFO] Worker exiting (pid: 75185)
+[2022-04-23 14:05:16 +0800] [75499] [INFO] Booting worker with pid: 75499
+[2022-04-23 14:05:17 +0800] [75500] [INFO] Booting worker with pid: 75500
+[2022-04-23 14:05:17 +0800] [75501] [INFO] Booting worker with pid: 75501
+[2022-04-23 14:05:17 +0800] [75176] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:17 +0800] [75176] [INFO] Worker exiting (pid: 75176)
+[2022-04-23 14:05:17 +0800] [75503] [INFO] Booting worker with pid: 75503
+[2022-04-23 14:05:17 +0800] [75178] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:17 +0800] [75178] [INFO] Worker exiting (pid: 75178)
+[2022-04-23 14:05:17 +0800] [75179] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:17 +0800] [75179] [INFO] Worker exiting (pid: 75179)
+[2022-04-23 14:05:17 +0800] [75504] [INFO] Booting worker with pid: 75504
+[2022-04-23 14:05:17 +0800] [75505] [INFO] Booting worker with pid: 75505
+[2022-04-23 14:05:32 +0800] [75503] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:32 +0800] [75503] [INFO] Worker exiting (pid: 75503)
+[2022-04-23 14:05:32 +0800] [75547] [INFO] Booting worker with pid: 75547
+[2022-04-23 14:05:32 +0800] [75504] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:32 +0800] [75504] [INFO] Worker exiting (pid: 75504)
+[2022-04-23 14:05:32 +0800] [75505] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:32 +0800] [75505] [INFO] Worker exiting (pid: 75505)
+[2022-04-23 14:05:32 +0800] [75548] [INFO] Booting worker with pid: 75548
+[2022-04-23 14:05:32 +0800] [75496] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:32 +0800] [75496] [INFO] Worker exiting (pid: 75496)
+[2022-04-23 14:05:32 +0800] [75497] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:32 +0800] [75497] [INFO] Worker exiting (pid: 75497)
+[2022-04-23 14:05:32 +0800] [75550] [INFO] Booting worker with pid: 75550
+[2022-04-23 14:05:33 +0800] [75551] [INFO] Booting worker with pid: 75551
+[2022-04-23 14:05:33 +0800] [75498] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:33 +0800] [75498] [INFO] Worker exiting (pid: 75498)
+[2022-04-23 14:05:33 +0800] [75552] [INFO] Booting worker with pid: 75552
+[2022-04-23 14:05:33 +0800] [75499] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:33 +0800] [75499] [INFO] Worker exiting (pid: 75499)
+[2022-04-23 14:05:33 +0800] [75553] [INFO] Booting worker with pid: 75553
+[2022-04-23 14:05:33 +0800] [75500] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:33 +0800] [75500] [INFO] Worker exiting (pid: 75500)
+[2022-04-23 14:05:33 +0800] [75560] [INFO] Booting worker with pid: 75560
+[2022-04-23 14:05:33 +0800] [75501] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:33 +0800] [75501] [INFO] Worker exiting (pid: 75501)
+[2022-04-23 14:05:33 +0800] [75567] [INFO] Booting worker with pid: 75567
+[2022-04-23 14:05:33 +0800] [75572] [INFO] Booting worker with pid: 75572
+[2022-04-23 14:05:50 +0800] [75560] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:50 +0800] [75560] [INFO] Worker exiting (pid: 75560)
+[2022-04-23 14:05:50 +0800] [75567] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:50 +0800] [75567] [INFO] Worker exiting (pid: 75567)
+[2022-04-23 14:05:50 +0800] [75633] [INFO] Booting worker with pid: 75633
+[2022-04-23 14:05:50 +0800] [75572] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:50 +0800] [75572] [INFO] Worker exiting (pid: 75572)
+[2022-04-23 14:05:50 +0800] [75634] [INFO] Booting worker with pid: 75634
+[2022-04-23 14:05:50 +0800] [75547] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:50 +0800] [75547] [INFO] Worker exiting (pid: 75547)
+[2022-04-23 14:05:50 +0800] [75635] [INFO] Booting worker with pid: 75635
+[2022-04-23 14:05:50 +0800] [75636] [INFO] Booting worker with pid: 75636
+[2022-04-23 14:05:50 +0800] [75548] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:50 +0800] [75548] [INFO] Worker exiting (pid: 75548)
+[2022-04-23 14:05:51 +0800] [75550] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:51 +0800] [75550] [INFO] Worker exiting (pid: 75550)
+[2022-04-23 14:05:51 +0800] [75638] [INFO] Booting worker with pid: 75638
+[2022-04-23 14:05:51 +0800] [75551] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:51 +0800] [75551] [INFO] Worker exiting (pid: 75551)
+[2022-04-23 14:05:51 +0800] [75552] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:51 +0800] [75552] [INFO] Worker exiting (pid: 75552)
+[2022-04-23 14:05:51 +0800] [75639] [INFO] Booting worker with pid: 75639
+[2022-04-23 14:05:51 +0800] [75640] [INFO] Booting worker with pid: 75640
+[2022-04-23 14:05:51 +0800] [75553] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:05:51 +0800] [75553] [INFO] Worker exiting (pid: 75553)
+[2022-04-23 14:05:51 +0800] [75641] [INFO] Booting worker with pid: 75641
+[2022-04-23 14:05:51 +0800] [75642] [INFO] Booting worker with pid: 75642
+[2022-04-23 14:05:54 +0800] [75638] [ERROR] Error handling request /api/v1/mon/inputs?ip=172.18.8.148
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 55, in handle
+    self.handle_request(listener_name, req, client, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 127, in handle_request
+    super().handle_request(listener_name, req, sock, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 108, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1526, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1545, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1702, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'mon_inputs' did not return a valid response. The function either returned None or ended without a return statement.
+[2022-04-23 14:06:23 +0800] [75636] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75636] [INFO] Worker exiting (pid: 75636)
+[2022-04-23 14:06:23 +0800] [75766] [INFO] Booting worker with pid: 75766
+[2022-04-23 14:06:23 +0800] [75638] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75638] [INFO] Worker exiting (pid: 75638)
+[2022-04-23 14:06:23 +0800] [75767] [INFO] Booting worker with pid: 75767
+[2022-04-23 14:06:23 +0800] [75639] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75639] [INFO] Worker exiting (pid: 75639)
+[2022-04-23 14:06:23 +0800] [75640] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75640] [INFO] Worker exiting (pid: 75640)
+[2022-04-23 14:06:23 +0800] [75641] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75641] [INFO] Worker exiting (pid: 75641)
+[2022-04-23 14:06:23 +0800] [75769] [INFO] Booting worker with pid: 75769
+[2022-04-23 14:06:23 +0800] [75642] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75633] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75642] [INFO] Worker exiting (pid: 75642)
+[2022-04-23 14:06:23 +0800] [75633] [INFO] Worker exiting (pid: 75633)
+[2022-04-23 14:06:23 +0800] [75770] [INFO] Booting worker with pid: 75770
+[2022-04-23 14:06:23 +0800] [75771] [INFO] Booting worker with pid: 75771
+[2022-04-23 14:06:23 +0800] [75634] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75634] [INFO] Worker exiting (pid: 75634)
+[2022-04-23 14:06:23 +0800] [75635] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:23 +0800] [75635] [INFO] Worker exiting (pid: 75635)
+[2022-04-23 14:06:23 +0800] [75772] [INFO] Booting worker with pid: 75772
+[2022-04-23 14:06:23 +0800] [75773] [INFO] Booting worker with pid: 75773
+[2022-04-23 14:06:24 +0800] [75774] [INFO] Booting worker with pid: 75774
+[2022-04-23 14:06:24 +0800] [75775] [INFO] Booting worker with pid: 75775
+[2022-04-23 14:06:25 +0800] [75773] [ERROR] Error handling request /api/v1/mon/inputs?ip=172.18.8.148
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 55, in handle
+    self.handle_request(listener_name, req, client, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 127, in handle_request
+    super().handle_request(listener_name, req, sock, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 108, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1526, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1545, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1702, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'mon_inputs' did not return a valid response. The function either returned None or ended without a return statement.
+[2022-04-23 14:06:27 +0800] [75771] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:27 +0800] [75771] [INFO] Worker exiting (pid: 75771)
+[2022-04-23 14:06:28 +0800] [75772] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:28 +0800] [75772] [INFO] Worker exiting (pid: 75772)
+[2022-04-23 14:06:28 +0800] [75777] [INFO] Booting worker with pid: 75777
+[2022-04-23 14:06:28 +0800] [75773] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:28 +0800] [75773] [INFO] Worker exiting (pid: 75773)
+[2022-04-23 14:06:28 +0800] [75774] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:28 +0800] [75774] [INFO] Worker exiting (pid: 75774)
+[2022-04-23 14:06:28 +0800] [75775] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:28 +0800] [75775] [INFO] Worker exiting (pid: 75775)
+[2022-04-23 14:06:28 +0800] [75784] [INFO] Booting worker with pid: 75784
+[2022-04-23 14:06:28 +0800] [75785] [INFO] Booting worker with pid: 75785
+[2022-04-23 14:06:28 +0800] [75766] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:28 +0800] [75766] [INFO] Worker exiting (pid: 75766)
+[2022-04-23 14:06:28 +0800] [75788] [INFO] Booting worker with pid: 75788
+[2022-04-23 14:06:28 +0800] [75790] [INFO] Booting worker with pid: 75790
+[2022-04-23 14:06:28 +0800] [75794] [INFO] Booting worker with pid: 75794
+[2022-04-23 14:06:28 +0800] [75767] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:28 +0800] [75767] [INFO] Worker exiting (pid: 75767)
+[2022-04-23 14:06:28 +0800] [75803] [INFO] Booting worker with pid: 75803
+[2022-04-23 14:06:28 +0800] [75769] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:28 +0800] [75769] [INFO] Worker exiting (pid: 75769)
+[2022-04-23 14:06:28 +0800] [75770] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:28 +0800] [75770] [INFO] Worker exiting (pid: 75770)
+[2022-04-23 14:06:28 +0800] [75804] [INFO] Booting worker with pid: 75804
+[2022-04-23 14:06:28 +0800] [75807] [INFO] Booting worker with pid: 75807
+[2022-04-23 14:06:34 +0800] [75804] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:34 +0800] [75804] [INFO] Worker exiting (pid: 75804)
+[2022-04-23 14:06:35 +0800] [75807] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:35 +0800] [75807] [INFO] Worker exiting (pid: 75807)
+[2022-04-23 14:06:35 +0800] [75777] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:35 +0800] [75777] [INFO] Worker exiting (pid: 75777)
+[2022-04-23 14:06:35 +0800] [75830] [INFO] Booting worker with pid: 75830
+[2022-04-23 14:06:35 +0800] [75784] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:35 +0800] [75784] [INFO] Worker exiting (pid: 75784)
+[2022-04-23 14:06:35 +0800] [75831] [INFO] Booting worker with pid: 75831
+[2022-04-23 14:06:35 +0800] [75785] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:35 +0800] [75785] [INFO] Worker exiting (pid: 75785)
+[2022-04-23 14:06:35 +0800] [75832] [INFO] Booting worker with pid: 75832
+[2022-04-23 14:06:35 +0800] [75833] [INFO] Booting worker with pid: 75833
+[2022-04-23 14:06:35 +0800] [75788] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:35 +0800] [75788] [INFO] Worker exiting (pid: 75788)
+[2022-04-23 14:06:35 +0800] [75790] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:35 +0800] [75790] [INFO] Worker exiting (pid: 75790)
+[2022-04-23 14:06:35 +0800] [75794] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:35 +0800] [75794] [INFO] Worker exiting (pid: 75794)
+[2022-04-23 14:06:35 +0800] [75834] [INFO] Booting worker with pid: 75834
+[2022-04-23 14:06:35 +0800] [75836] [INFO] Booting worker with pid: 75836
+[2022-04-23 14:06:35 +0800] [75803] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:06:35 +0800] [75803] [INFO] Worker exiting (pid: 75803)
+[2022-04-23 14:06:35 +0800] [75837] [INFO] Booting worker with pid: 75837
+[2022-04-23 14:06:35 +0800] [75838] [INFO] Booting worker with pid: 75838
+[2022-04-23 14:06:35 +0800] [75839] [INFO] Booting worker with pid: 75839
+[2022-04-23 14:06:37 +0800] [75833] [ERROR] Error handling request /api/v1/mon/inputs?ip=172.18.8.148
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 55, in handle
+    self.handle_request(listener_name, req, client, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 127, in handle_request
+    super().handle_request(listener_name, req, sock, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 108, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1526, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1545, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1702, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'mon_inputs' did not return a valid response. The function either returned None or ended without a return statement.
+[2022-04-23 14:07:37 +0800] [75832] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:37 +0800] [75832] [INFO] Worker exiting (pid: 75832)
+[2022-04-23 14:07:37 +0800] [75833] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:37 +0800] [75833] [INFO] Worker exiting (pid: 75833)
+[2022-04-23 14:07:37 +0800] [75834] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:37 +0800] [75834] [INFO] Worker exiting (pid: 75834)
+[2022-04-23 14:07:38 +0800] [76059] [INFO] Booting worker with pid: 76059
+[2022-04-23 14:07:38 +0800] [76060] [INFO] Booting worker with pid: 76060
+[2022-04-23 14:07:38 +0800] [75836] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:38 +0800] [75836] [INFO] Worker exiting (pid: 75836)
+[2022-04-23 14:07:38 +0800] [76061] [INFO] Booting worker with pid: 76061
+[2022-04-23 14:07:38 +0800] [75837] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:38 +0800] [75837] [INFO] Worker exiting (pid: 75837)
+[2022-04-23 14:07:38 +0800] [75838] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:38 +0800] [75838] [INFO] Worker exiting (pid: 75838)
+[2022-04-23 14:07:38 +0800] [76062] [INFO] Booting worker with pid: 76062
+[2022-04-23 14:07:38 +0800] [75839] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:38 +0800] [75839] [INFO] Worker exiting (pid: 75839)
+[2022-04-23 14:07:38 +0800] [76063] [INFO] Booting worker with pid: 76063
+[2022-04-23 14:07:38 +0800] [76064] [INFO] Booting worker with pid: 76064
+[2022-04-23 14:07:38 +0800] [76068] [INFO] Booting worker with pid: 76068
+[2022-04-23 14:07:38 +0800] [75830] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:38 +0800] [75830] [INFO] Worker exiting (pid: 75830)
+[2022-04-23 14:07:38 +0800] [75831] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:38 +0800] [75831] [INFO] Worker exiting (pid: 75831)
+[2022-04-23 14:07:38 +0800] [76071] [INFO] Booting worker with pid: 76071
+[2022-04-23 14:07:38 +0800] [76072] [INFO] Booting worker with pid: 76072
+[2022-04-23 14:07:41 +0800] [76072] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:41 +0800] [76072] [INFO] Worker exiting (pid: 76072)
+[2022-04-23 14:07:42 +0800] [76092] [INFO] Booting worker with pid: 76092
+[2022-04-23 14:07:42 +0800] [76059] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:42 +0800] [76059] [INFO] Worker exiting (pid: 76059)
+[2022-04-23 14:07:42 +0800] [76060] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:42 +0800] [76060] [INFO] Worker exiting (pid: 76060)
+[2022-04-23 14:07:42 +0800] [76061] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:42 +0800] [76061] [INFO] Worker exiting (pid: 76061)
+[2022-04-23 14:07:42 +0800] [76093] [INFO] Booting worker with pid: 76093
+[2022-04-23 14:07:42 +0800] [76095] [INFO] Booting worker with pid: 76095
+[2022-04-23 14:07:42 +0800] [76062] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:42 +0800] [76062] [INFO] Worker exiting (pid: 76062)
+[2022-04-23 14:07:42 +0800] [76096] [INFO] Booting worker with pid: 76096
+[2022-04-23 14:07:42 +0800] [76063] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:42 +0800] [76063] [INFO] Worker exiting (pid: 76063)
+[2022-04-23 14:07:42 +0800] [76064] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:42 +0800] [76064] [INFO] Worker exiting (pid: 76064)
+[2022-04-23 14:07:42 +0800] [76097] [INFO] Booting worker with pid: 76097
+[2022-04-23 14:07:42 +0800] [76068] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:42 +0800] [76068] [INFO] Worker exiting (pid: 76068)
+[2022-04-23 14:07:42 +0800] [76099] [INFO] Booting worker with pid: 76099
+[2022-04-23 14:07:42 +0800] [76100] [INFO] Booting worker with pid: 76100
+[2022-04-23 14:07:42 +0800] [76101] [INFO] Booting worker with pid: 76101
+[2022-04-23 14:07:42 +0800] [76071] [INFO] Worker reloading: /Users/admin/PycharmProjects/flaskProject/app.py modified
+[2022-04-23 14:07:42 +0800] [76071] [INFO] Worker exiting (pid: 76071)
+[2022-04-23 14:07:42 +0800] [76103] [INFO] Booting worker with pid: 76103
+[2022-04-23 14:07:54 +0800] [76101] [ERROR] Error handling request /api/v1/mon/inputs?ip=172.18.8.148
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 55, in handle
+    self.handle_request(listener_name, req, client, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 127, in handle_request
+    super().handle_request(listener_name, req, sock, addr)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 108, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1526, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1545, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1702, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'mon_inputs' did not return a valid response. The function either returned None or ended without a return statement.
+[2022-04-23 14:07:59 +0800] [74086] [INFO] Handling signal: int
+[2022-04-23 14:07:59 +0800] [76099] [INFO] Worker exiting (pid: 76099)
+[2022-04-23 14:07:59 +0800] [76100] [INFO] Worker exiting (pid: 76100)
+[2022-04-23 14:07:59 +0800] [76097] [INFO] Worker exiting (pid: 76097)
+[2022-04-23 14:07:59 +0800] [76101] [INFO] Worker exiting (pid: 76101)
+[2022-04-23 14:07:59 +0800] [76093] [INFO] Worker exiting (pid: 76093)
+[2022-04-23 14:07:59 +0800] [76103] [INFO] Worker exiting (pid: 76103)
+[2022-04-23 14:07:59 +0800] [76095] [INFO] Worker exiting (pid: 76095)
+[2022-04-23 14:07:59 +0800] [76096] [INFO] Worker exiting (pid: 76096)
+[2022-04-23 14:07:59 +0800] [76092] [INFO] Worker exiting (pid: 76092)
+[2022-04-23 14:08:00 +0800] [74086] [INFO] Shutting down: Master
+[2022-04-23 16:57:50 +0800] [12772] [INFO] Starting gunicorn 20.1.0
+[2022-04-23 16:57:50 +0800] [12772] [INFO] Listening at: http://0.0.0.0:23456 (12772)
+[2022-04-23 16:57:50 +0800] [12772] [INFO] Using worker: gevent
+[2022-04-23 16:57:50 +0800] [12784] [INFO] Booting worker with pid: 12784
+[2022-04-23 16:57:50 +0800] [12785] [INFO] Booting worker with pid: 12785
+[2022-04-23 16:57:50 +0800] [12786] [INFO] Booting worker with pid: 12786
+[2022-04-23 16:57:50 +0800] [12787] [INFO] Booting worker with pid: 12787
+[2022-04-23 16:57:50 +0800] [12788] [INFO] Booting worker with pid: 12788
+[2022-04-23 16:57:50 +0800] [12789] [INFO] Booting worker with pid: 12789
+[2022-04-23 16:57:50 +0800] [12790] [INFO] Booting worker with pid: 12790
+[2022-04-23 16:57:50 +0800] [12791] [INFO] Booting worker with pid: 12791
+[2022-04-23 16:57:51 +0800] [12792] [INFO] Booting worker with pid: 12792
+[2022-04-23 16:58:16 +0800] [12772] [INFO] Handling signal: int
+[2022-04-23 16:58:16 +0800] [12787] [INFO] Worker exiting (pid: 12787)
+[2022-04-23 16:58:17 +0800] [12790] [INFO] Worker exiting (pid: 12790)
+[2022-04-23 16:58:17 +0800] [12789] [INFO] Worker exiting (pid: 12789)
+[2022-04-23 16:58:17 +0800] [12788] [INFO] Worker exiting (pid: 12788)
+[2022-04-23 16:58:17 +0800] [12791] [INFO] Worker exiting (pid: 12791)
+[2022-04-23 16:58:17 +0800] [12792] [INFO] Worker exiting (pid: 12792)
+[2022-04-23 16:58:17 +0800] [12784] [INFO] Worker exiting (pid: 12784)
+[2022-04-23 16:58:17 +0800] [12785] [INFO] Worker exiting (pid: 12785)
+[2022-04-23 16:58:17 +0800] [12786] [INFO] Worker exiting (pid: 12786)
+[2022-04-23 16:58:17 +0800] [12772] [INFO] Shutting down: Master

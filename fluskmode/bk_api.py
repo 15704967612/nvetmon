@@ -10,7 +10,8 @@ class BkCmdb:
     """
 
     def __init__(self, host: str, **kw):
-        self.bk_ip = host
+        # self.bk_ip = host
+        self.bk_ip = "http://172.18.9.218:33032"
 
         self.headers = {
             'Content-Type': 'application/json',
@@ -18,9 +19,45 @@ class BkCmdb:
             'BK_USER': 'api',
         }
 
+    def select_host_id(self, bk_host_innerip, bk_biz_id=int(3), start=int(0), limit=int(100)):
+        """ 查询主机ID """
+        url = self.bk_ip + '/api/v3/hosts/search'
+        data = json.dumps({
+            "page": {
+                "start": start,
+                "limit": limit,
+                "sort": ""
+            },
+            "pattern": "",
+            "bk_biz_id": bk_biz_id,
+            "ip": {
+                "flag": "bk_host_innerip|bk_host_outerip",
+                "exact": 1,
+                "data": [bk_host_innerip, ]
+            },
+            "condition": [
+                {
+                    "bk_obj_id": "host",
+                    "fields": ['bk_host_innerip'],
+                    "condition": []
+                },
+            ]
+        })
+        try:
+            r = requests.post(url, headers=self.headers, data=data)
+        except requests.exceptions.ConnectionError:
+            return json.dumps({"ok": False, "code": 1122011, "data": "蓝鲸系统连接错误"})
+        except requests.exceptions.Timeout:
+            return json.dumps({"ok": False, "code": 1122012, "data": "蓝鲸系统连接超时"})
+        msg = json.loads(r.text)['data']
+        if int(msg['count']) == 0:
+            return json.dumps({"ok": False, "code": 200, "data": ""})
+
+        return json.dumps({"ok": True, "code": 200, "data": msg['info'][0]['host']['bk_host_id']})
+
     # 信息查询
-    def select(self, bk_host_innerip, bk_biz_id=int(3), start=int(0), limit=int(100)):
-        """ 查询主机信息 """
+    def select_host_telegraf(self, bk_host_innerip, bk_biz_id=int(3), start=int(0), limit=int(100)):
+        """ 查询主机telegraf信息 """
         url = self.bk_ip + '/api/v3/hosts/search'
         data = json.dumps({
             "page": {
@@ -44,33 +81,56 @@ class BkCmdb:
                 },
             ]
         })
-        """
-        状态码说明:
-        1、400 网络异常
-        2、404 主机不存在
-        3、408 监控信息不存在
-        """
         try:
             r = requests.post(url, headers=self.headers, data=data)
         except requests.exceptions.ConnectionError:
-            return 400
+            return json.dumps({"ok": False, "code": 1122013, "data": "蓝鲸系统连接错误"})
         except requests.exceptions.Timeout:
-            return 400
-        except:
-            return 400
-        else:
-            val = r.json()['data']
-            if val['count'] == 0:
-                return 404
+            return json.dumps({"ok": False, "code": 1122014, "data": "蓝鲸系统连接超时"})
+
+        dater = r.json()['data']['info'][0]['host']
+        strd = ""
+        for _keys in dater:
+            if int(str(_keys).find('bk_monitor_input')) != int(-1):
+                strd += dater[_keys] + " "
+        if len(strd.strip()) == 0:
+            return json.dumps({"ok": False, "code": 200, "data": strd.strip()})
+        return json.dumps({"ok": True, "code": 200, "data": strd.strip()})
+
+    def select_audit_log(self, start_time, end_time):
+        """查询操作审计日志"""
+        url = self.bk_ip + "/api/v3/audit/search"
+        data = json.dumps({
+            "condition": {
+                "bk_biz_id": int(3),
+                "op_target": "host",
+                "op_time": [
+                    start_time,
+                    end_time
+                ]
+            },
+            "start": 0,
+            "limit": 200,
+            "sort": "-create_time"
+        })
+        try:
+            r = requests.post(url, headers=self.headers, data=data)
+        except requests.exceptions.ConnectionError:
+            return json.dumps({"ok": False, "code": 1122015, "data": ""})
+        except requests.exceptions.Timeout:
+            return json.dumps({"ok": False, "code": 1122016, "data": ""})
+
+        dater = r.json()['data']
+        if dater['count'] == 0:
+            return json.dumps({"ok": False, "code": 200, "data": ""})
+
+        valid = []
+        for _host in dater['info']:
+            if str(_host['operator']) == "api":
+                pass
             else:
-                val = val['info'][0]['host']
-                pop_keys = ['bk_cloud_id', 'bk_host_id']
-                [val.pop(k) for k in pop_keys]
-                data = ""
-                if len(val) > 0:
-                    for _key in val:
-                        data += val[_key] + " "
-                    data = str(data.strip())
-                    return data
-                else:
-                    return 408
+                valid.append(_host['content']['cur_data']['bk_host_innerip'])
+        valid = list(set(valid))
+
+        return json.dumps({"ok": True, "code": 200, "data": valid})
+

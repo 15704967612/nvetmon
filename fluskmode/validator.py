@@ -24,7 +24,7 @@ def __check_name(name):
         return False
 
 
-def parameter(tag: None):
+def parameter(tag: str):
     """检查参数合法性"""
 
     def _parameter(func):
