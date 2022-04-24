@@ -17,3 +17,4 @@ x_forwarded_for_header = 'X_FORWARDED-FOR'
 loglevel = 'info'
 accesslog = './logs/access.log'
 errorlog = './logs/error.log'
+capture_output = True

@@ -16,7 +16,7 @@ class SchedulerConfig(object):
     JOBS = [
         {
             'id': 'job1',
-            'func': '__main__:timer',
+            'func': 'app:timer',
             'args': '',
             'trigger': 'cron',
             'minute': "*/1"

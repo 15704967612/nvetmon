@@ -4,7 +4,7 @@ import os
 import time
 import paramiko
 
-from fluskmode.logger2 import Logger
+from flaskmode.logger2 import Logger
 
 logger = Logger()
 
@@ -25,7 +25,7 @@ def ssh_connect(host: str, username: str, cmd: str):
                 "timestamp": time.time(),
                 "ok": False,
                 "code": 1122021,
-                "data": "ssh %s@%s %s 执行失败" % (username, host, cmd)
+                "data": "ssh %s@%s %s Execute Failure" % (username, host, cmd)
             })
             Logger.output(log_msg)
         else:
@@ -34,7 +34,7 @@ def ssh_connect(host: str, username: str, cmd: str):
                 "timestamp": time.time(),
                 "ok": True,
                 "code": 200,
-                "data": "ssh %s@%s %s 执行成功" % (username, host, cmd)
+                "data": "ssh %s@%s %s Execute Succeed" % (username, host, cmd)
             })
             logger.output(log_msg)
 
@@ -46,6 +46,6 @@ def ssh_connect(host: str, username: str, cmd: str):
             "timestamp": time.time(),
             "ok": False,
             "code": 1122022,
-            "data": "ssh %s@%s 连接失败 [%s]" % (username, host, e)
+            "data": "ssh %s@%s Connect Failure [%s]" % (username, host, e)
         })
         Logger.output(log_msg)

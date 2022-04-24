@@ -11,24 +11,28 @@ import time
 from flask import Flask
 from flask import request, jsonify, render_template
 
-from fluskmode import bk_api
-from fluskmode import logic
-from fluskmode.schedules import SchedulerConfig, scheduler
-from fluskmode.validator import parameter
-from fluskmode.ssh_cli import ssh_connect
+from flaskmode import bk_api
+from flaskmode import logic
+from flaskmode.schedules import SchedulerConfig, scheduler
+from flaskmode.validator import parameter
+from flaskmode.ssh_cli import ssh_connect
+from flaskmode.logger2 import Logger
+
 
 __author__ = 'mc'
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 # 导入定时器配置
 app.config.from_object(SchedulerConfig())
+
 
 # 导入配置文件
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.abspath(os.path.dirname('__file__')), 'app_conf.ini'))
 bk_host = config["DEFAULT"]["Cmdb_Adder"]
 BkUser = bk_api.BkCmdb(bk_host)
+logger = Logger()
 
 
 @app.route('/api/v1/mon/inputs', methods=["GET"], endpoint="mon_inputs")
@@ -68,10 +72,21 @@ def timer():
         for _ip in ips:
             ssh_connect(host=_ip, username='root', cmd='/opt/scripts/n9e_mon.sh')
     else:
-        pass
+        log_msg = json.dumps({
+            "datetime": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+            "timestamp": time.time(),
+            "ok": True,
+            "code": 200,
+            "data": "timer not update"
+        })
+        logger.output(log_msg)
 
 
 if __name__ != '__main__':
+    # 初始化定时器
+    scheduler.init_app(app)
+    # 启动定时器，默认后台启动了
+    scheduler.start()
     # 如果不是直接运行，则将日志输出到 gunicorn 中
     gunicorn_logger = logging.getLogger('gunicorn.error')
     app.logger.handlers = gunicorn_logger.handlers
@@ -80,8 +95,8 @@ if __name__ != '__main__':
 
 if __name__ == '__main__':
     # 初始化定时器
-    scheduler.init_app(app)
-    # 启动定时器，默认后台启动了
-    scheduler.start()
+    # scheduler.init_app(app)
+    # # 启动定时器，默认后台启动了
+    # scheduler.start()
     # 启动app
     app.run(host="0.0.0.0", port=23456, use_reloader=False)
