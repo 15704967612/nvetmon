@@ -32,8 +32,6 @@ def parameter(tag: str):
         def _check(*args, **kwargs):
             if len(request.args.keys()) == 0:
                 return jsonify(dict(code=4010, msg="请输入参数"))
-            # if len(request.args.keys()) > 1:
-            #     return jsonify(dict(code=4011, msg="参数不合法"))
             if tag == "ip":
                 ip = request.args.get("ip", "")
                 if not ip:

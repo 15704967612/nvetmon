@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from apscheduler.executors.pool import ThreadPoolExecutor
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask_apscheduler import APScheduler as _BaseAPScheduler
@@ -18,8 +19,8 @@ class SchedulerConfig(object):
             'func': '__main__:timer',
             'args': '',
             'trigger': 'cron',
-            # 'minute': "*/1"
-            'second': "*/3"
+            'minute': "*/1"
+            # 'second': "*/3"
         }
     ]
 

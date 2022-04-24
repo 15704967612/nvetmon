@@ -9,9 +9,8 @@ class BkCmdb:
     Blue Whale Interface
     """
 
-    def __init__(self, host: str, **kw):
-        # self.bk_ip = host
-        self.bk_ip = "http://172.18.9.218:33032"
+    def __init__(self, bk_host: str, **kw):
+        self.bk_ip = bk_host
 
         self.headers = {
             'Content-Type': 'application/json',

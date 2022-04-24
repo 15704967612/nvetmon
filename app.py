@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import asyncio
 import configparser
 import datetime
@@ -7,7 +8,7 @@ import logging
 import os
 import time
 
-from flask import Flask, current_app
+from flask import Flask
 from flask import request, jsonify, render_template
 
 from fluskmode import bk_api
@@ -19,16 +20,15 @@ from fluskmode.ssh_cli import ssh_connect
 __author__ = 'mc'
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 # 导入定时器配置
 app.config.from_object(SchedulerConfig())
 
 # 导入配置文件
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.abspath(os.path.dirname('__file__')), 'app_conf.ini'))
-host = config["DEFAULT"]["Cmdb_Adder"]
-
-BkUser = bk_api.BkCmdb(host)
+bk_host = config["DEFAULT"]["Cmdb_Adder"]
+BkUser = bk_api.BkCmdb(bk_host)
 
 
 @app.route('/api/v1/mon/inputs', methods=["GET"], endpoint="mon_inputs")
@@ -65,8 +65,8 @@ def timer():
     update_info_ip = json.loads(BkUser.select_audit_log(start_time=start_time, end_time=end_time))
     if update_info_ip['ok'] and update_info_ip['code'] == 200:
         ips = update_info_ip['data']
-        task_list = [ssh_connect(host=_ip, username='admin', cmd='/opt/scripts/automon.sh') for _ip in ips]
-        done, peding = asyncio.run(asyncio.wait(task_list))
+        for _ip in ips:
+            ssh_connect(host=_ip, username='root', cmd='/opt/scripts/n9e_mon.sh')
     else:
         pass
 
