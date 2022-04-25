@@ -25,7 +25,7 @@ class SchedulerConfig(object):
     ]
 
     # 线程池配置，最大20个线程
-    SCHEDULER_EXECUTORS = {'default': ThreadPoolExecutor(20)}
+    SCHEDULER_EXECUTORS = {'default': ThreadPoolExecutor(5)}
     # 调度开关开启
     SCHEDULER_API_ENABLED = True
     # 设置容错时间为 1小时

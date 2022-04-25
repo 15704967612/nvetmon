@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import asyncio
+import atexit
 import configparser
 import datetime
+import fcntl
 import json
 import logging
 import os
+import platform
 import time
 
 from flask import Flask
@@ -18,14 +21,12 @@ from flaskmode.validator import parameter
 from flaskmode.ssh_cli import ssh_connect
 from flaskmode.logger2 import Logger
 
-
 __author__ = 'mc'
 
 app = Flask(__name__)
 app.debug = False
 # 导入定时器配置
-app.config.from_object(SchedulerConfig())
-
+# app.config.from_object(SchedulerConfig())
 
 # 导入配置文件
 config = configparser.ConfigParser()
@@ -82,21 +83,44 @@ def timer():
         logger.output(log_msg)
 
 
+def _init_ok(app):
+
+    def _init_tasks():
+        app.config.from_object(SchedulerConfig())
+        scheduler.init_app(app)
+        scheduler.start()
+        app.run(host="0.0.0.0", port=23456, use_reloader=False)
+
+    def _init_app():
+        gunicorn_logger = logging.getLogger('gunicorn.error')
+        app.logger.handlers = gunicorn_logger.handlers
+        app.logger.setLevel(gunicorn_logger.level)
+        # app.run(host="0.0.0.0", port=23456, use_reloader=False)
+
+    if platform.system() != 'Windows':
+        f = open("scheduler.lock", "wb")
+
+        def unlock():
+            fcntl.flock(f, fcntl.LOCK_UN)
+            f.close()
+
+        atexit.register(unlock)
+
+        _init_app()
+
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            _init_tasks()
+
+        except Exception as e:
+            print(e)
+        pass
+
+
 if __name__ != '__main__':
-    # 初始化定时器
-    scheduler.init_app(app)
-    # 启动定时器，默认后台启动了
-    scheduler.start()
-    # 如果不是直接运行，则将日志输出到 gunicorn 中
-    gunicorn_logger = logging.getLogger('gunicorn.error')
-    app.logger.handlers = gunicorn_logger.handlers
-    app.logger.setLevel(gunicorn_logger.level)
+    _init_ok(app)
 
 
 if __name__ == '__main__':
-    # 初始化定时器
-    # scheduler.init_app(app)
-    # # 启动定时器，默认后台启动了
-    # scheduler.start()
-    # 启动app
-    app.run(host="0.0.0.0", port=23456, use_reloader=False)
+    _init_ok(app)
+
