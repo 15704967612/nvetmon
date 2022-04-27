@@ -2,7 +2,11 @@
 docker build -t dearmc/automon:release_v1_001 -f Dockerfile .
 
 # Docker 镜像启动方法
-docker run -itd --name automon -p 23456:23456 -v /data/app/logs:/app/logs -v /data/app/keys/id_rsa:/app/keys/id_rsa dearmc/automon:release_v1_001
+docker run -itd --name automon -p 23456:23456 \  
+                -v /data/app/logs:/app/logs \  
+                -v /data/app/keys/id_rsa:/app/keys/id_rsa \  
+                -v /data/app/templates:/app/templates \  
+                dearmc/automon:release_v1_001
 
 # 错误代码
 1、错误代码由7位数组成

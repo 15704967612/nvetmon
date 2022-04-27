@@ -22,6 +22,7 @@ from flaskmode.validator import parameter
 from flaskmode.ssh_cli import ssh_connect
 from flaskmode.logger2 import Logger
 
+
 __author__ = 'mc'
 
 app = Flask(__name__)
@@ -58,8 +59,6 @@ def mon_inputs():
 def mon_files():
     """获取telegraf模板文件"""
     name = request.args.get("name")
-    res_url = request.url
-    print(res_url)
     context_dict = {"ip": request.args.get("ip"),
                     "port": request.args.get("port"),
                     "user": request.args.get("user"),
