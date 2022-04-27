@@ -9,10 +9,11 @@ import json
 import logging
 import os
 import platform
+import subprocess
 import time
 
 from flask import Flask
-from flask import request, jsonify, render_template
+from flask import request, jsonify, render_template, redirect
 
 from flaskmode import bk_api
 from flaskmode import logic
@@ -57,10 +58,25 @@ def mon_inputs():
 def mon_files():
     """获取telegraf模板文件"""
     name = request.args.get("name")
+    res_url = request.url
+    print(res_url)
+    context_dict = {"ip": request.args.get("ip"),
+                    "port": request.args.get("port"),
+                    "user": request.args.get("user"),
+                    "password": request.args.get("password")
+                    }
     filename = logic.configuration_file(name)
     if filename:
-        return render_template(filename)
+        return render_template(filename, context_dict=context_dict)
     else:
+        _file_name = os.path.join(os.getcwd(), 'templates', name + '.conf')
+        # Alpine
+        command = "telegraf --input-filter %s config | sed -n '/\[\[inputs.%s\]\]/,$p' > %s" % (name, name, _file_name)
+        # MaxOS Test
+        # command = "./bin/telegraf -config ./bin/telegraf.conf --input-filter %s config | " \
+        #           "sed -n '/\[\[inputs.%s\]\]/,$p' > %s" % (name, name, _file_name)
+        subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
+
         return jsonify(dict(code=3999, msg="telegraf配置模板文件不存在"))
 
 
@@ -84,7 +100,6 @@ def timer():
 
 
 def _init_ok(app):
-
     def _init_tasks():
         app.config.from_object(SchedulerConfig())
         scheduler.init_app(app)
@@ -120,7 +135,6 @@ def _init_ok(app):
 if __name__ != '__main__':
     _init_ok(app)
 
-
 if __name__ == '__main__':
-    _init_ok(app)
-
+    # _init_ok(app)
+    app.run(host="0.0.0.0", port=23456, use_reloader=False)
