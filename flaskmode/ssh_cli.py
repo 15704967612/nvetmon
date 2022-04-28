@@ -4,8 +4,8 @@ import os
 import time
 import paramiko
 
-# from flaskmode.logger2 import Logger
-from logger2 import Logger
+from flaskmode.logger2 import Logger
+
 logger = Logger()
 
 
