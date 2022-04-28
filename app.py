@@ -26,7 +26,7 @@ from flaskmode.logger2 import Logger
 __author__ = 'mc'
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 # 导入定时器配置
 # app.config.from_object(SchedulerConfig())
 
@@ -95,7 +95,6 @@ def timer():
             "code": 200,
             "data": "timer not update"
         })
-        print("stop-- ssh........")
         logger.output(log_msg)
 
 

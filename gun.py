@@ -17,8 +17,8 @@ reload = False
 x_forwarded_for_header = 'X_FORWARDED-FOR'
 # 访问日志
 loglevel = 'debug'
-# accesslog = './logs/access.log'
-# errorlog = './logs/error.log'
-accesslog = '-'
-errorlog = '-'
+accesslog = './logs/access.log'
+errorlog = './logs/error.log'
+# accesslog = '-'
+# errorlog = '-'
 capture_output = True
