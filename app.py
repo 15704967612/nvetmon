@@ -19,14 +19,14 @@ from flaskmode import bk_api
 from flaskmode import logic
 from flaskmode.schedules import SchedulerConfig, scheduler
 from flaskmode.validator import parameter
-from flaskmode.ssh_cli import ssh_connect
+from flaskmode.ssh_cli import run_ssh
 from flaskmode.logger2 import Logger
 
 
 __author__ = 'mc'
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 # 导入定时器配置
 # app.config.from_object(SchedulerConfig())
 
@@ -81,12 +81,12 @@ def mon_files():
 
 def timer():
     end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    start_time = (datetime.datetime.now() + datetime.timedelta(minutes=-1)).strftime("%Y-%m-%d %H:%M:%S")
+    start_time = (datetime.datetime.now() + datetime.timedelta(minutes=-10)).strftime("%Y-%m-%d %H:%M:%S")
     update_info_ip = json.loads(BkUser.select_audit_log(start_time=start_time, end_time=end_time))
+
     if update_info_ip['ok'] and update_info_ip['code'] == 200:
         ips = update_info_ip['data']
-        for _ip in ips:
-            ssh_connect(host=_ip, username='root', cmd='/opt/scripts/n9e_mon.sh')
+        run_ssh(ips)
     else:
         log_msg = json.dumps({
             "datetime": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
@@ -95,6 +95,7 @@ def timer():
             "code": 200,
             "data": "timer not update"
         })
+        print("stop-- ssh........")
         logger.output(log_msg)
 
 
@@ -135,5 +136,9 @@ if __name__ != '__main__':
     _init_ok(app)
 
 if __name__ == '__main__':
+    # app.config.from_object(SchedulerConfig())
+    # scheduler.init_app(app)
+    # scheduler.start()
+    # app.run(host="0.0.0.0", port=23456, use_reloader=False)
     # _init_ok(app)
     app.run(host="0.0.0.0", port=23456, use_reloader=False)

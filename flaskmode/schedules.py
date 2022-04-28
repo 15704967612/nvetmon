@@ -20,19 +20,19 @@ class SchedulerConfig(object):
             'args': '',
             'trigger': 'cron',
             'minute': "*/1"
-            # 'second': "*/3"
+            # 'second': "*/10"
         }
     ]
 
     # 线程池配置，最大20个线程
-    SCHEDULER_EXECUTORS = {'default': ThreadPoolExecutor(5)}
+    SCHEDULER_EXECUTORS = {'default': ThreadPoolExecutor(20)}
     # 调度开关开启
     SCHEDULER_API_ENABLED = True
     # 设置容错时间为 1小时
     SCHEDULER_JOB_DEFAULTS = {
-        'misfire_grace_time': 3600,
+        'misfire_grace_time': 10,
         'coalesce': False,
-        'max_instances': 3
+        'max_instances': 30
     }
     # 配置时区
     SCHEDULER_TIMEZONE = 'Asia/Shanghai'

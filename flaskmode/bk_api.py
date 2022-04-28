@@ -120,6 +120,7 @@ class BkCmdb:
             return json.dumps({"ok": False, "code": 1122016, "data": ""})
 
         dater = r.json()['data']
+
         if dater['count'] == 0:
             return json.dumps({"ok": False, "code": 200, "data": ""})
 
@@ -130,6 +131,4 @@ class BkCmdb:
             else:
                 valid.append(_host['content']['cur_data']['bk_host_innerip'])
         valid = list(set(valid))
-
         return json.dumps({"ok": True, "code": 200, "data": valid})
-
