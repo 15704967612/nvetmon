@@ -1,0 +1,192 @@
+[2022-05-10 16:37:37 +0800] [56193] [DEBUG] Current configuration:
+  config: gun.py
+  wsgi_app: None
+  bind: ['0.0.0.0:23456']
+  backlog: 2048
+  workers: 4
+  worker_class: gevent
+  threads: 40
+  worker_connections: 2000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: True
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/admin/PycharmProjects/nvtemon
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: ./logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: ./logs/error.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10ae014d0>
+  on_reload: <function OnReload.on_reload at 0x10ae015f0>
+  when_ready: <function WhenReady.when_ready at 0x10ae01710>
+  pre_fork: <function Prefork.pre_fork at 0x10ae01830>
+  post_fork: <function Postfork.post_fork at 0x10ae01950>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10ae01a70>
+  worker_int: <function WorkerInt.worker_int at 0x10ae01b90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10ae01cb0>
+  pre_exec: <function PreExec.pre_exec at 0x10ae01dd0>
+  pre_request: <function PreRequest.pre_request at 0x10ae01ef0>
+  post_request: <function PostRequest.post_request at 0x10ae01f80>
+  child_exit: <function ChildExit.child_exit at 0x10ae170e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10ae17200>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10ae17320>
+  on_exit: <function OnExit.on_exit at 0x10ae17440>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses (0.0.0.0)
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://127.0.0.1:23456
+ * Running on http://192.168.0.111:23456 (Press CTRL+C to quit)
+------  0.6171165895683137
+------  0.9048912712343553
+------  0.3779719289471618
+------  0.914131180518364
+------  0.009379331057471463
+------  0.9350908080219517
+------  0.2919829920335245
+------  0.6970267107937519
+------  0.7944253371034908
+------  0.47949265687115483
+------  0.43751361513505815
+------  0.1638437994959252
+------  0.2860540159130215
+------  0.8729290988910053
+------  0.3076591526755692
+------  0.4611834941859382
+------  0.34434654694039346
+KeyboardInterrupt
+2022-05-10T08:37:55Z
+[2022-05-10 16:37:55 +0800] [56193] [INFO] Starting gunicorn 20.1.0
+[2022-05-10 16:37:55 +0800] [56193] [DEBUG] Arbiter booted
+[2022-05-10 16:37:55 +0800] [56193] [INFO] Listening at: http://0.0.0.0:23456 (56193)
+[2022-05-10 16:37:55 +0800] [56193] [INFO] Using worker: gevent
+[2022-05-10 16:37:55 +0800] [56204] [INFO] Booting worker with pid: 56204
+[2022-05-10 16:37:55 +0800] [56205] [INFO] Booting worker with pid: 56205
+[2022-05-10 16:37:55 +0800] [56206] [INFO] Booting worker with pid: 56206
+------  0.6921250927466887
+------  0.8663117345608755
+------  0.17783660053479122
+------  0.6585996069175624
+[2022-05-10 16:37:55 +0800] [56207] [INFO] Booting worker with pid: 56207
+[2022-05-10 16:37:55 +0800] [56193] [DEBUG] 4 workers
+------  0.9617659136239244
+------  0.5336179489188965
+------  0.7780850644591096
+------  0.8691749272156392
+------  0.3018640111292462
+------  0.0755394158835554
+------  0.8518796462173107
+------  0.40883513365941115
+------  0.33960621200020435
+------  0.43304834340207166
+------  0.13076875090693407
+------  0.9167025803312816
+------  0.47869147346841046
+------  0.06451375261529768
+------  0.4452829101561756
+------  0.19478190032211062
+------  0.5242664796052636
+------  0.0453211637629114
+------  0.03517795049035766
+------  0.9067539005294344
+------  0.8384552693035169
+------  0.5552846360076792
+------  0.08567074936434493
+------  0.12175135430109674
+------  0.7707805779045485
+------  0.7735644428691993
+------  0.046052313018120294
+------  0.7177038343157183
+------  0.5719091721939276
+------  0.9088394099112154
+------  0.24515822139519594
+------  0.47995669935585794
+------  0.7913323488255714
+------  0.7174262435349001
+------  0.2168702978740089
+------  0.21236913047714712
+------  0.7071917946046467
+------  0.48165470348100625
+------  0.3374862396160777
+------  0.7168059612047756
+------  0.8496048256863504
+------  0.03746540862969572
+------  0.1830809529063211
+------  0.5524005106998878
+------  0.7761231896796175
+------  0.5427685180552905
+------  0.8170770082776122
+------  0.2007135126807279
+------  0.16418548557666113
+------  0.7097313252052485
+------  0.5625586876876245
+------  0.1724666934235488
+------  0.9626418472451239
+------  0.11021510719682193
+------  0.7074622087068785
+[2022-05-10 16:38:06 +0800] [56193] [INFO] Handling signal: int
+[2022-05-10 16:38:06 +0800] [56206] [INFO] Worker exiting (pid: 56206)
+[2022-05-10 16:38:06 +0800] [56207] [INFO] Worker exiting (pid: 56207)
+[2022-05-10 16:38:06 +0800] [56205] [INFO] Worker exiting (pid: 56205)
+[2022-05-10 16:38:06 +0800] [56204] [INFO] Worker exiting (pid: 56204)
+[2022-05-10 16:38:07 +0800] [56193] [WARNING] Worker with pid 56207 was terminated due to signal 2
+[2022-05-10 16:38:07 +0800] [56193] [WARNING] Worker with pid 56206 was terminated due to signal 2
+[2022-05-10 16:38:07 +0800] [56193] [WARNING] Worker with pid 56205 was terminated due to signal 2
+[2022-05-10 16:38:07 +0800] [56193] [WARNING] Worker with pid 56204 was terminated due to signal 2
+[2022-05-10 16:38:07 +0800] [56193] [INFO] Shutting down: Master
